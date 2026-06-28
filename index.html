@@ -588,6 +588,16 @@ formatRupiah(
 item.HARGA
 );
 
+historyScan.push({
+KODE:item.KODE,
+NAMA_BARANG:item.NAMA_BARANG,
+HARGA:item.HARGA
+});
+localStorage.setItem(
+"historyScan",
+JSON.stringify(historyScan)
+);
+
 }else{
 
 document.getElementById(
