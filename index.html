@@ -772,6 +772,31 @@ alert(
 }
 }
 
+function exportHistory(){
+if(historyScan.length==0){
+alert("Belum ada hasil scan");
+return;
+}
+const data = historyScan.map(item=>({
+"KODE BARANG":item.KODE,
+"NAMA BARANG":item.NAMA_BARANG,
+"HARGA":item.HARGA
+}));
+const ws =
+XLSX.utils.json_to_sheet(data);
+const wb =
+XLSX.utils.book_new();
+XLSX.utils.book_append_sheet(
+wb,
+ws,
+"Riwayat Scan"
+);
+XLSX.writeFile(
+wb,
+"Riwayat_Scan.xlsx"
+);
+}
+
 </script>
 
 </body>
